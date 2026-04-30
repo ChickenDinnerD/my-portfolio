@@ -96,12 +96,24 @@ The project is deployed using Vercel.
 
 ## Author
 
-Your Name
+AM
 
-GitHub: [https://github.com/yourusername](https://github.com/yourusername)
+Email: [more2write1code@gmail.com](mailto:more2write1code@gmail.com)
 
-LinkedIn: [https://linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
 
-Telegram: [https://t.me/yourusername](https://t.me/yourusername)
+# React + Vite
 
-Email: [your@email.com](mailto:your@email.com)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
