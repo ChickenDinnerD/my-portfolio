@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Set global font to IBM Plex Sans via Tailwind base so it applies to the whole app */
+@layer base {
+	body {
+		/* Use a fast system/Helvetica stack to avoid external font loads */
+		font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", Arial, sans-serif;
+	}
+}

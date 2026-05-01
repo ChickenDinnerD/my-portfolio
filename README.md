@@ -1,3 +1,100 @@
+# Design System
+
+This project follows a minimal modern design system inspired by clean developer portfolios.
+
+---
+
+## Typography
+
+- Font family: **IBM Plex Sans**
+- Fallback: `system-ui, sans-serif`
+
+### Font sizes
+
+- Hero title: `48px / 56px line-height`
+- Section title: `32px`
+- Subheading: `24px`
+- Body text: `16px`
+- Small text: `14px`
+
+### Font weights
+
+- Bold: `700` (headings)
+- Medium: `500` (emphasis)
+- Regular: `400` (body text)
+
+---
+
+## Colors
+
+### Base theme
+
+- Background: `#0f0f0f` (dark)
+- Surface: `#1a1a1a`
+- Primary text: `#ffffff`
+- Secondary text: `#a1a1a1`
+- Accent: `#3b82f6` (blue)
+
+---
+
+## Spacing
+
+- Section padding: `80px`
+- Container max-width: `1100px`
+- Grid gap: `24px`
+- Small spacing: `8px`
+- Medium spacing: `16px`
+- Large spacing: `32px`
+
+---
+
+## Layout
+
+- Max content width: `1100px`
+- Centered layout
+- Mobile-first responsive design
+- Breakpoints:
+  - Mobile: `0–640px`
+  - Tablet: `640–1024px`
+  - Desktop: `1024px+`
+
+---
+
+## Components
+
+### Buttons
+
+- Primary button: blue background + white text
+- Hover: slightly darker + scale 1.02
+- Border radius: `8px`
+- Padding: `10px 16px`
+
+### Cards
+
+- Background: surface color
+- Border radius: `12px`
+- Padding: `16–24px`
+- Subtle hover lift effect
+
+---
+
+## Animations
+
+- Duration: `200–300ms`
+- Easing: `ease-out`
+- Hover scale: `1.02`
+- Fade-in on scroll for sections
+
+---
+
+## Principles
+
+- Minimalism over complexity
+- Consistent spacing everywhere
+- No random colors
+- Typography-first design
+- Mobile-first layout
+
 # Portfolio Website
 
 Personal portfolio website built with React + Vite.
