@@ -18,6 +18,13 @@ export default function App() {
     Math.random() > 0.5 ? loader1 : loader2
   );
 
+  // Vertical offsets — tweak these to move elements up/down while everything stays horizontally centered
+  const loaderTop = "7.13%"; // loader vertical position
+  const centerPhotoTop = "-8.5%"; // center big photo vertical position
+  const photoBoxTop = "36%"; // photo box vertical position (the box that cycles backgrounds)
+  const photoroomTop = "-7.42%"; // photoroom portrait vertical position
+  const titleTop = "18.7%"; // title vertical position
+
   // we use a fixed cycle length (3) for background photos, no array needed
 
   useEffect(() => {
@@ -72,38 +79,97 @@ export default function App() {
       <div
         style={{
           position: "relative",
-          width: "100vw",
+          width: "100%",
           height: "100vh",
           background: "#ffffff",
           overflow: "hidden",
+          border: "1px dashed rgba(255,0,0,0.7)",
         }}
       >
+        {/* center guide lines (loader) */}
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: 0,
+            transform: "translateX(-50%)",
+            width: "2px",
+            height: "100%",
+            background: "red",
+            zIndex: 9999,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: 0,
+            transform: "translateY(-50%)",
+            height: "2px",
+            width: "100%",
+            background: "red",
+            zIndex: 9999,
+          }}
+        />
         <img
           src={currentLoader}
           alt="Loading"
+          width={1600}
+          height={1340}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           style={{
             position: "absolute",
-            left: "9.375%",
-            top: "7.13%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              top: loaderTop,
             width: "81.25%",
             height: "85.64%",
             objectFit: "cover",
+            aspectRatio: "1600 / 1340",
           }}
         />
       </div>
     );
   }
 
-  return (
+    return (
     <div
       style={{
         position: "relative",
-        width: "100vw",
+        width: "100%",
         height: "100vh",
         background: "#ffffff",
         overflow: "hidden",
+        border: "1px dashed rgba(255,0,0,0.7)",
       }}
     >
+      {/* center guide lines (main) */}
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: 0,
+          transform: "translateX(-50%)",
+          width: "2px",
+          height: "100%",
+          background: "red",
+          zIndex: 9999,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: 0,
+          transform: "translateY(-50%)",
+          height: "2px",
+          width: "100%",
+          background: "red",
+          zIndex: 9999,
+        }}
+      />
       {/* Photo1678894482 - only in intro stage */}
       {showCenterPhoto && (
         <img
@@ -111,94 +177,88 @@ export default function App() {
           alt="Center"
           style={{
             position: "absolute",
-            left: "0%",
-            top: "-8.5%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: centerPhotoTop,
             width: "100%",
-            height: "116.89%",
             objectFit: "cover",
           }}
         />
       )}
 
-      {/* Background photos - screenshot, SDC10080, IMG_1245 */}
-      {stage === "main" && backgroundPhotoIndex === 0 && (
-        <img
-          src={screenshot}
-          alt="Background"
-          style={{
-            position: "absolute",
-            left: "14.72%",
-            top: "31.45%",
-            width: "70.49%",
-            height: "65.14%",
-            objectFit: "cover",
-          }}
-        />
-      )}
+      {/* Photo box for cycling background images — images swap inside this container */}
+      <div
+        style={{
+          position: "absolute",
+          top: photoBoxTop,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "50%",
+          height: "55.14%",
+          overflow: "hidden",
+          border: "1px dashed rgba(255,0,0,0.7)",
+        }}
+      >
+        {stage === "main" && (
+          <img
+            src={
+              backgroundPhotoIndex === 0
+                ? screenshot
+                : backgroundPhotoIndex === 1
+                ? sdc10080
+                : img1245
+            }
+            alt="Background"
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "75%",
+              objectFit: "cover",
+            }}
+          />
+        )}
+      </div>
 
-      {stage === "main" && backgroundPhotoIndex === 1 && (
-        <img
-          src={sdc10080}
-          alt="Background"
-          style={{
-            position: "absolute",
-            left: "19.1%",
-            top: "31.45%",
-            width: "61.81%",
-            height: "65.14%",
-            objectFit: "cover",
-          }}
-        />
-      )}
-
-      {stage === "main" && backgroundPhotoIndex === 2 && (
-        <img
-          src={img1245}
-          alt="Background"
-          style={{
-            position: "absolute",
-            left: "19.1%",
-            top: "31.45%",
-            width: "61.81%",
-            height: "65.14%",
-            objectFit: "cover",
-          }}
-        />
-      )}
-
-      {/* Photoroom image - appears in intro and stays in main */}
+            {/* Photoroom image - appears in intro and stays in main */}
       {showPhotoroom && (
         <img
           src={photoroomImage}
           alt="Portrait"
           style={{
             position: "absolute",
-            left: "33.96%",
-            top: "-7.42%",
-            width: "32.08%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: photoroomTop,
+            width: "22.08%",
             height: "60.16%",
             objectFit: "cover",
           }}
         />
       )}
-
       {/* Text - appears in intro and stays in main */}
+
       {showText && (
-        <h1
+        <div
           style={{
             position: "absolute",
-            left: "38.19%",
-            top: "20.7%",
-            width: "23.61%",
-            height: "8.98%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: titleTop,
+            width: "auto",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            textAlign: "center",
             color: "#000",
+            fontSize: "60px",
+            border: "1px dashed rgba(255,0,0,0.7)",
+            padding: "8px 12px",
           }}
         >
-          Alex Mashtaler
-        </h1>
+          <h1 style={{ margin: 0 }}>Alex Mashtaler</h1>
+        </div>
       )}
     </div>
   );
